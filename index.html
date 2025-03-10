@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script>
+
+    function inicio() {
+        var html = '<div class="container">';
+        html += '<h1> Sua amiga Leticia está na sua casa e vocês estão decidindo o que fazer hoje </h1>';
+        html += '<p> O que vocês vão fazer hoje? </p>';
+        html += '<img src="data:image/jpeg;base64,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">';
+        html += '<button onclick="escolhaPraia()">Ir à Praia</button>';
+        html += '<button onclick="escolhaSorvete()">Ir tomar Sorvete</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function escolhaPraia() {
+        var html = '<div class="container">';
+        html += '<p> Vocês decidiram ir para a praia! </p>';
+        html += '<button onclick="irDeOnibus()">Ir de Ônibus</button>';
+        html += '<button onclick="irDeUber()">Ir de Uber</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function irDeOnibus() {
+        var html = '<div class="container">';
+        html += '<p> O ônibus pegou um engarrafamento e vocês chegaram tarde na praia. </p>';
+        html += '<button onclick="banhoDeMar()">Tomar banho de mar</button>';
+        html += '<button onclick="piquenique()">Fazer piquenique na areia</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function irDeUber() {
+        var html = '<div class="container">';
+        html += '<p> O Uber pegou um atalho e vocês chegaram cedo na praia. </p>';
+        html += '<button onclick="surfar()">Surfar</button>';
+        html += '<button onclick="frescobol()">Jogar frescobol</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function banhoDeMar() {
+        var html = '<div class="container">';
+        html += '<p> Vocês se refrescaram com um banho de mar e se divertiram bastante. </p>';
+        html += '<button onclick="catarConchas()">Catar conchas</button>';
+        html += '<button onclick="procurarTartarugas()">Procurar tartarugas</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function piquenique() {
+        var html = '<div class="container">';
+        html += '<p> Vocês fizeram um piquenique na areia e aproveitaram o dia. </p>';
+        html += '<button onclick="catarConchas()">Catar conchas</button>';
+        html += '<button onclick="procurarTartarugas()">Procurar tartarugas</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function catarConchas() {
+        var html = '<div class="container">';
+        html += '<p> Vocês cataram conchas e encontraram algumas muito bonitas! </p>';
+        html += '<button onclick="irCasaLeticia()">Ir para casa de Leticia</button>';
+        html += '<button onclick="irMinhaCasa()">Voltar para sua casa</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function procurarTartarugas() {
+        var html = '<div class="container">';
+        html += '<p> Vocês procuraram tartarugas e viram algumas se aproximando da praia! </p>';
+        html += '<button onclick="irCasaLeticia()">Ir para casa de Leticia</button>';
+        html += '<button onclick="irMinhaCasa()">Voltar para sua casa</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function surfar() {
+        var html = '<div class="container">';
+        html += '<p> Vocês pegaram umas ondas e se divertiram muito no mar. </p>';
+        html += '<button onclick="porDoSol()">Assistir o pôr do sol</button>';
+        html += '<button onclick="comerMcDonalds()">Ir ao McDonalds</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function frescobol() {
+        var html = '<div class="container">';
+        html += '<p> Vocês jogaram frescobol e se divertiram ao sol. </p>';
+        html += '<button onclick="porDoSol()">Assistir o pôr do sol</button>';
+        html += '<button onclick="comerMcDonalds()">Ir ao McDonalds</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function porDoSol() {
+        var html = '<div class="container">';
+        html += '<p> Vocês assistiram ao pôr do sol e relaxaram na praia. </p>';
+        html += '<button onclick="irCasaLeticia()">Ir para casa de Leticia</button>';
+        html += '<button onclick="irMinhaCasa()">Voltar para sua casa</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function comerMcDonalds() {
+        var html = '<div class="container">';
+        html += '<p> Vocês foram ao McDonalds e comeram algumas delícias! </p>';
+        html += '<button onclick="irCasaLeticia()">Ir para casa de Leticia</button>';
+        html += '<button onclick="irMinhaCasa()">Voltar para sua casa</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function irCasaLeticia() {
+        var html = '<div class="container">';
+        html += '<p> Vocês foram para a casa de Leticia e passaram um tempo juntas. </p>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function irMinhaCasa() {
+        var html = '<div class="container">';
+        html += '<p> Vocês voltaram para sua casa e descansaram. </p>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function escolhaSorvete() {
+        var html = '<div class="container">';
+        html += '<p> Vocês decidiram ir tomar sorvete. </p>';
+        html += '<button onclick="irAPe()">Ir a pé</button>';
+        html += '<button onclick="irDeBicicleta()">Ir de bicicleta</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function irAPe() {
+        var html = '<div class="container">';
+        html += '<p> Vocês foram a pé e demoraram um pouco para chegar. </p>';
+        html += '<button onclick="sorveteChocolate()">Tomar sorvete de chocolate</button>';
+        html += '<button onclick="sorveteMorango()">Tomar sorvete de morango</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function irDeBicicleta() {
+        var html = '<div class="container">';
+        html += '<p> Leticia caiu da bicicleta e ralou o joelho. </p>';
+        html += '<button onclick="irHospital()">Ir ao hospital</button>';
+        html += '<button onclick="continuar()">Continuar indo tomar sorvete</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function sorveteChocolate() {
+        var html = '<div class="container">';
+        html += '<p> Vocês tomaram sorvete de chocolate e se deliciaram! </p>';
+        html += '<button onclick="voltarParaCasa()">Voltar para casa</button>';
+        html += '<button onclick="irPracinha()">Ir à pracinha do bairro</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function sorveteMorango() {
+        var html = '<div class="container">';
+        html += '<p> Vocês tomaram sorvete de morango e aproveitaram o sabor! </p>';
+        html += '<button onclick="voltarParaCasa()">Voltar para casa</button>';
+        html += '<button onclick="irPracinha()">Ir à pracinha do bairro</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function voltarParaCasa() {
+        var html = '<div class="container">';
+        html += '<p> Vocês voltaram para casa e descansaram. </p>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function irPracinha() {
+        var html = '<div class="container">';
+        html += '<p> Vocês foram à pracinha do bairro e se divertiram jogando bola. </p>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function irHospital() {
+        var html = '<div class="container">';
+        html += '<p> Vocês foram ao hospital, Leticia foi atendida e ficou bem. </p>';
+        html += '<button onclick="irParaCasa()">Voltar para casa</button>';
+        html += '<button onclick="jogarVolei()">Ir jogar vôlei</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function continuar() {
+        var html = '<div class="container">';
+        html += '<p> Leticia insistiu em continuar e vocês tomaram o sorvete juntas. </p>';
+        html += '<button onclick="irParaCasa()">Voltar para casa</button>';
+        html += '<button onclick="jogarVolei()">Ir jogar vôlei</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function irParaCasa() {
+        var html = '<div class="container">';
+        html += '<p> Vocês voltaram para casa e descansaram. </p>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    function jogarVolei() {
+        var html = '<div class="container">';
+        html += '<p> Vocês jogaram vôlei e se divertiram muito! </p>';
+        html += '<button onclick="irCasaLeticia()">Ir para casa de Leticia</button>';
+        html += '<button onclick="irMinhaCasa()">Voltar para sua casa</button>';
+        html += '</div>';
+
+        $("body").append(html);
+    }
+
+    window.onload = inicio;
+
+    </script>
+
+    <style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    button {
+        width: 300px;
+        margin: 10px;
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    </style>
+
+</head>
+<body>
+
+</body>
+</html>
